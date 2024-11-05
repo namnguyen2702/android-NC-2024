@@ -13,7 +13,6 @@ public class QuizManager {
         quizzes.add(new Quiz("2 + 2 = ?", "4"));
         quizzes.add(new Quiz("2 + 5 = ?", "7"));
         quizzes.add(new Quiz("11 + 2 = ?", "13"));
-        // Thêm câu đố khác nếu cần
     }
 
     public Quiz getRandomQuiz() {

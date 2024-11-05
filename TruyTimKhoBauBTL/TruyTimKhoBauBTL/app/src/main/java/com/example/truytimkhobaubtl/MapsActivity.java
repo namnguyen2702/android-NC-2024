@@ -94,7 +94,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             // Cập nhật lại khoảng cách và kiểm tra điều kiện nếu cần
             if (results[0] < 50) {
-                // Hiển thị kho báu hoặc xử lý logic khác
+
             }
         }
     }
@@ -110,10 +110,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
 
-            // Bật nút My Location và la bàn
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
             mMap.getUiSettings().setCompassEnabled(true);
-            mMap.getUiSettings().setMapToolbarEnabled(true); // Đảm bảo thanh công cụ chỉ đường được bật
+            mMap.getUiSettings().setMapToolbarEnabled(true);
 
             startLocationUpdates();
 
@@ -140,7 +139,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Xử lý sự kiện nhấn vào Marker
         mMap.setOnMarkerClickListener(marker -> {
-            selectedTreasureMarker = marker;  // Đánh dấu kho báu được chọn
+            selectedTreasureMarker = marker;
 
             // Tính khoảng cách từ vị trí hiện tại đến kho báu
             float[] results = new float[1];
@@ -151,7 +150,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             );
             float distanceInMeters = results[0];
 
-            // Hiển thị thông báo với tên kho báu và khoảng cách
             Toast.makeText(this, "Kho báu được chọn: " + marker.getTitle() + "\nKhoảng cách của kho báu là " + Math.round(distanceInMeters) + "m", Toast.LENGTH_SHORT).show();
 
             return false;
@@ -180,7 +178,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void showQuizDialog(Marker treasureMarker) {
-        // Lấy câu đố ngẫu nhiên
         QuizManager.Quiz quiz = quizManager.getRandomQuiz();
 
         // Tạo giao diện câu đố
